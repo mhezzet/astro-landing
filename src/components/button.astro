@@ -1,0 +1,27 @@
+---
+const { name, background, color, border = "2px solid var(--color-border)" } = Astro.props;
+---
+
+<button>
+  <slot name="icon" />{name}
+</button>
+
+<style lang="scss" define:vars={{ background, color, border }}>
+  button {
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--background);
+    color: var(--color);
+    border: var(--border);
+
+    &:hover {
+      background-color: var(--color-border);
+      color: white;
+    }
+  }
+</style>

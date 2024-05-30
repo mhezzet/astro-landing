@@ -1,0 +1,265 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/roboto-latin-400-normal.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Abril";
+  src: url("/fonts/abril-fatface-latin-400-normal.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-border: #424242;
+  --color-bg: #111111;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  background-color: var(--color-bg);
+  font-size: 1.2rem;
+  color: hsla(180, 7%, 75%, 0.9);
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+main,
+header,
+section {
+  position: relative;
+  z-index: 10;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+a,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+.image-content {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.image-content .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-content img {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+@media only screen and (min-width: 1263px) {
+  .image-content {
+    justify-content: flex-end;
+  }
+}
+
+.section-container {
+  max-width: 1500px;
+  padding: 0 2rem;
+  min-height: 100vh;
+}
+
+@media only screen and (min-width: 1263px) {
+  .section-container {
+    padding: 0 4rem;
+  }
+}
+
+.cards {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(5, 30rem);
+  gap: 4rem;
+  margin-top: 8rem;
+  max-width: 1500px;
+  padding: 0 2rem;
+}
+
+.card {
+  position: relative;
+  background-color: var(--color-bg);
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease-in-out;
+}
+
+.new {
+  position: absolute;
+  top: 3rem;
+  right: 2.5rem;
+  z-index: 10;
+  background: #222260;
+  color: #fff;
+
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.card .text {
+  position: absolute;
+  bottom: 3rem;
+  left: 2.5rem;
+  z-index: 10;
+}
+
+.card .text h3 {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: #f2994a;
+  background: var(--color-bg);
+  padding: 0.2rem 1rem;
+  border-radius: 30px;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.overlay {
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: 25%;
+  background: linear-gradient(0deg, #111111 1%, rgba(17, 17, 17, 0.06) 99%);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.full-page {
+  width: calc(100% - 10rem);
+  height: 1000px;
+  z-index: 10;
+  position: relative;
+  border-radius: 1rem;
+  border-radius: 8px;
+  max-width: 1500px;
+  margin: auto;
+  border: 1px solid var(--color-border);
+  transition: border 0.3s ease-in-out;
+}
+
+.full-page img {
+  padding: 1.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.full-page:hover {
+  border: 1px solid #f2994a;
+}
+
+.animated-text {
+  max-width: 1500px;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 10rem;
+}
+
+.animated-text p {
+  font-size: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.zoom-section-container {
+  max-width: 1500px;
+  padding: 0 2rem;
+  margin: auto;
+  margin-bottom: 10rem;
+}
+.zoom-section {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.zoom-section .image {
+  border-radius: 8px;
+}
+
+.zoom-section .image img {
+  border-radius: 8px;
+}
+.zoom-section .image .monkey {
+  position: absolute;
+  top: 10%;
+  right: 3rem;
+}
+.zoom-section .image .smoke {
+  position: absolute;
+  top: 10%;
+  left: 3rem;
+}
+
+.custom-cursor {
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 50;
+  position: fixed;
+  border-radius: 50%;
+}

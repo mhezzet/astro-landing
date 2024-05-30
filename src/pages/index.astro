@@ -1,0 +1,30 @@
+---
+import Hero from "@components/hero.astro";
+import { ImagesScrollSlider } from "@components/react/images-scroll-slider";
+import { FullPage } from "@components/react/full-page";
+import MainLayout from "@layouts/main-layout.astro";
+import { cards } from "@libs/cards";
+import { TextSection } from "@components/react/animated-text";
+import { ZoomSection } from "@components/react/zoom-section";
+import { getImage } from "astro:assets";
+import rover from "@assets/images/rover.jpg";
+import arm from "@assets/images/arm.jpg";
+import arm2 from "@assets/images/arm2.jpg";
+import spiral from "@assets/graphics/spiral.svg";
+
+const roverImg = await getImage({ src: rover, format: "webp" });
+const armImg = await getImage({ src: arm, format: "webp" });
+const arm2Img = await getImage({ src: arm2, format: "webp" });
+const spiralImg = await getImage({ src: spiral, format: "webp" });
+---
+
+<MainLayout>
+  <main>
+    <Hero />
+    <ImagesScrollSlider client:only="react" cards={cards} />
+    <FullPage img={roverImg.src} client:idle />
+    <ImagesScrollSlider client:only="react" cards={cards} />
+    <TextSection client:idle />
+    <ZoomSection client:idle images={[spiralImg.src, arm2Img.src, armImg.src]} />
+  </main>
+</MainLayout>

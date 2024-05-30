@@ -1,0 +1,84 @@
+---
+import Button from "@components/button.astro";
+import { Icon } from "astro-icon/components";
+import monkey from "@assets/images/monkey.png";
+import { getImage } from "astro:assets";
+import { Hover3DImage } from "@components/react/hover-3d";
+
+const monkeyImage = await getImage({ src: monkey, format: "webp" });
+---
+
+<section id="hero">
+  <div class="container">
+    <div class="text-content">
+      <h1>Lorem ipsum dolor sit amet elit.</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi minus eaque, illo voluptate provident
+        ducimus culpa neque dignissimos debitis. Deleniti expedita repellat hic quam, ea praesentium delectus
+        exercitationem et.
+      </p>
+      <div class="buttons">
+        <Button name="Get Started" background="#f2994a" color="#fff" border="1px solid #f2994a">
+          <Icon name="fa6-solid:rocket" slot="icon" />
+        </Button>
+        <Button name="Learn More" />
+      </div>
+    </div>
+
+    <Hover3DImage image={monkeyImage} client:only="react" />
+  </div>
+</section>
+
+<style lang="scss">
+  .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    min-height: calc(100vh - 10vh);
+    padding: 0 2rem;
+    max-width: 1500px;
+    margin: auto;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .text-content {
+    width: 100%;
+    text-align: center;
+
+    > h1 {
+      font-size: clamp(2rem, 5vw, 5rem);
+      color: #f2994a;
+      transition: all 0.01 linear;
+      padding-bottom: 1.5rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      padding-top: 2.5rem;
+      justify-content: center;
+    }
+  }
+
+  h1 {
+    font-family: "Abril", system-ui;
+  }
+
+  @media only screen and (min-width: 1263px) {
+    .container {
+      flex-wrap: nowrap;
+      padding: 0 4rem;
+      align-items: center;
+    }
+
+    .text-content .buttons {
+      justify-content: start;
+    }
+
+    .text-content {
+      max-width: 50%;
+      text-align: start;
+    }
+  }
+</style>

@@ -1,0 +1,80 @@
+---
+import logo from "@assets/images/logo.png";
+import Button from "@components/button.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+---
+
+<header>
+  <div class="logo">
+    <a href="/" slot="logo">
+      <Image src={logo} width={36} alt="logo" />
+    </a>
+    <h2>Logo</h2>
+  </div>
+  <div class="input">
+    <input type="text" placeholder="search" />
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/auctions">Auctions</a>
+    <a href="/marketplace">Marketplace</a>
+    <a href="/about">about</a>
+    <Button name="Connect Wallet" background="var(--color-bg)">
+      <Icon name="fa6-solid:wallet" slot="icon" />
+    </Button>
+  </nav>
+</header>
+
+<style lang="scss">
+  header {
+    padding: 0 4rem;
+    min-height: 10vh;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+    }
+
+    .input {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+
+      input {
+        width: 55%;
+        padding: 0.6rem 0.8rem;
+        border-radius: 8px;
+        background-color: #161616;
+        border: 1px solid var(--color-border);
+
+        &::placeholder {
+          color: var(--color-border);
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  a {
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: white;
+      transform: scale(1.05);
+    }
+  }
+</style>
